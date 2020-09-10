@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://tong125847.github.io</id>
     <title>The Tong&apos;s blog</title>
-    <updated>2020-09-10T05:45:24.004Z</updated>
+    <updated>2020-09-10T13:29:09.636Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://tong125847.github.io"/>
     <link rel="self" href="https://tong125847.github.io/atom.xml"/>
@@ -10,6 +10,82 @@
     <logo>https://tong125847.github.io/images/avatar.png</logo>
     <icon>https://tong125847.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, The Tong&apos;s blog</rights>
+    <entry>
+        <title type="html"><![CDATA[This is a HTML test!]]></title>
+        <id>https://tong125847.github.io/post/this-is-a-html-test/</id>
+        <link href="https://tong125847.github.io/post/this-is-a-html-test/">
+        </link>
+        <updated>2020-09-10T13:25:53.000Z</updated>
+        <content type="html"><![CDATA[<pre><code class="language-html">
+&lt;html&gt;
+  &lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot; /&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
+&lt;title&gt;The Tong&amp;#39;s blog&lt;/title&gt;
+&lt;link rel=&quot;shortcut icon&quot; href=&quot;http://localhost:4000/favicon.ico?v=1599744207804&quot;&gt;
+&lt;link href=&quot;https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;http://localhost:4000/styles/main.css&quot;&gt;
+&lt;link rel=&quot;alternate&quot; type=&quot;application/atom+xml&quot; title=&quot;The Tong&amp;#39;s blog - Atom Feed&quot; href=&quot;http://localhost:4000/atom.xml&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://fonts.googleapis.com/css?family=Droid+Serif:400,700&quot;&gt;
+
+
+
+  &lt;meta name=&quot;description&quot; content=&quot;最高处见！&quot; /&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class=&quot;main&quot;&gt;
+      &lt;div class=&quot;main-content&quot;&gt;
+        &lt;div class=&quot;site-header&quot;&gt;
+  &lt;a href=&quot;http://localhost:4000&quot;&gt;
+  &lt;img class=&quot;avatar&quot; src=&quot;http://localhost:4000/images/avatar.png?v=1599744207804&quot; alt=&quot;&quot;&gt;
+  &lt;/a&gt;
+  &lt;h1 class=&quot;site-title&quot;&gt;
+    The Tong&amp;#39;s blog
+  &lt;/h1&gt;
+  &lt;p class=&quot;site-description&quot;&gt;
+    最高处见！
+  &lt;/p&gt;
+  &lt;div class=&quot;menu-container&quot;&gt;
+        &lt;a href=&quot;/&quot; class=&quot;menu&quot;&gt;
+          首页
+        &lt;/a&gt;
+        &lt;a href=&quot;/archives&quot; class=&quot;menu&quot;&gt;
+          归档
+        &lt;/a&gt;
+
+        &lt;a href=&quot;/tags&quot; class=&quot;menu&quot;&gt;
+          标签
+        &lt;/a&gt;
+      
+    
+      
+        &lt;a href=&quot;/post/about&quot; class=&quot;menu&quot;&gt;
+          关于
+        &lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;social-container&quot;&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+        &lt;div class=&quot;tags-container&quot;&gt;
+
+            &lt;a class=&quot;tag&quot; href=&quot;http://localhost:4000/tag/UBXtgiV2B/&quot;&gt;Gridea&lt;/a&gt;
+          
+        &lt;/div&gt;
+
+        &lt;div class=&quot;site-footer&quot;&gt;
+  Powered by &lt;a href=&quot;https://github.com/getgridea/gridea&quot; target=&quot;_blank&quot;&gt;Gridea&lt;/a&gt;
+  &lt;a class=&quot;rss&quot; href=&quot;http://localhost:4000/atom.xml&quot; target=&quot;_blank&quot;&gt;
+    &lt;i class=&quot;ri-rss-line&quot;&gt;&lt;/i&gt; RSS
+  &lt;/a&gt;
+&lt;/div&gt;
+
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
         <id>https://tong125847.github.io/post/hello-gridea/</id>
