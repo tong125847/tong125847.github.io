@@ -31,9 +31,6 @@
                 <!--点击特效-->
                 <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/love.min.js"></script>
                 
-                    <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic@latest/assets/media/script/APlayer.min.js"></script>
-                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
-                    
                         <!--CDN样式-->
                         <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/hit-kounter-lc-0.3.0.js"></script>
                         <script src="https://cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
@@ -86,7 +83,7 @@
                         <input id="switch_default" type="checkbox" class="switch_default">
                         <label for="switch_default" class="toggleBtn"></label>
             </div>
-            <form id="gridea-search-form" data-update="1600918860044" action="/search/index.html">
+            <form id="gridea-search-form" data-update="1600919347790" action="/search/index.html">
                 <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
             </form>
         </div>
@@ -105,7 +102,7 @@
                         <!--zh-->
                         <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
                     </div>
-                    <form id="gridea-search-form" data-update="1600918860044" action="/search/index.html">
+                    <form id="gridea-search-form" data-update="1600919347790" action="/search/index.html">
                         <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
                     </form>
                     <!--en-->
@@ -290,8 +287,8 @@
                                                     <i class="post-share"></i>
                                                     <span>Share:</span>
                                                         <a title="QR Code" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://tong125847.github.io/post/about/"><i class="fa fa-qrcode"></i></a>
-                                                        <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://tong125847.github.io/post/about/&sharesource=qzone&title=关于&pics=https://tong125847.github.io/images/avatar.png?v=1600918860044&summary="><i class="fa fa-qq"></i></a>
-                                                        <a title="Weibo" target="_blank" href="https://service.weibo.com/share/share.php?url=https://tong125847.github.io/post/about/&sharesource=weibo&title=关于 + " - " + &pic="https://tong125847.github.io/images/avatar.png?v=1600918860044 "><i class="fa fa-weibo "></i></a>
+                                                        <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://tong125847.github.io/post/about/&sharesource=qzone&title=关于&pics=https://tong125847.github.io/images/avatar.png?v=1600919347790&summary="><i class="fa fa-qq"></i></a>
+                                                        <a title="Weibo" target="_blank" href="https://service.weibo.com/share/share.php?url=https://tong125847.github.io/post/about/&sharesource=weibo&title=关于 + " - " + &pic="https://tong125847.github.io/images/avatar.png?v=1600919347790 "><i class="fa fa-weibo "></i></a>
                                                         
                                                                 </span>
                                                                 <!--en-->
@@ -322,8 +319,6 @@
     </div>
     </div>
     </div>
-    
-    <div id="player"></div>
     
         <footer id="footer" class="footer">
             <div class="copyright">
@@ -366,35 +361,6 @@
             
                 <script>
                     
-
-                    function LoadPlayer() {
-                        var musicList = [];
-                        
-                        musicList.push({
-                            name: '好想好想你',
-                            url: 'http://m8.music.126.net/20200924112536/4f65b210847c455743b9d87bb83376aa/ymusic/-L922jjvpTvXykYCu35Q_w==/509951163094855293',
-                            artist: 'G.E.M邓紫棋',
-                            cover: 'http://p1.music.126.net/X7f92tSJ-b0_sC1u9tgAyQ==/109951163654227442.jpg?imageView&amp;thumbnail=360y360&amp;quality=75&amp;tostatic=0',
-                        });
-                        
-                        musicList.push({
-                            name: '毒苹果',
-                            url: 'http://m701.music.126.net/20200924113109/144ad9be3566195121a4584c5a210d05/jdyyaac/5152/0258/5152/f830c55b86521387a265f8048d429a07.m4a',
-                            artist: 'G.E.M邓紫棋',
-                            cover: 'http://p1.music.126.net/X7f92tSJ-b0_sC1u9tgAyQ==/109951163654227442.jpg?imageView&amp;thumbnail=360y360&amp;quality=75&amp;tostatic=0',
-                        });
-                        
-                        console.log(" MusicList: " + musicList);
-                        
-                        const ap = new APlayer({
-                            container: document.getElementById('player'),
-                            fixed: true,
-                            audio: musicList
-                        });
-                        
-                    }
-                    LoadPlayer();
-                    
                     
                     loadlive2d();
                     
@@ -408,7 +374,7 @@
                     CheckVersion();
                     
                     var newDate = new Date();
-                    newDate.setTime(1600918860044);
+                    newDate.setTime(1600919347790);
                     console.log(" Blog Update Time: " + newDate.toLocaleDateString());
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>
