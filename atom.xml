@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://tong125847.github.io</id>
     <title>The Tong&apos;s blog</title>
-    <updated>2020-09-24T06:07:24.246Z</updated>
+    <updated>2020-09-24T06:43:19.325Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://tong125847.github.io"/>
     <link rel="self" href="https://tong125847.github.io/atom.xml"/>
@@ -10,6 +10,80 @@
     <logo>https://tong125847.github.io/images/avatar.png</logo>
     <icon>https://tong125847.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, The Tong&apos;s blog</rights>
+    <entry>
+        <title type="html"><![CDATA[插入图片Markdown]]></title>
+        <id>https://tong125847.github.io/post/cha-ru-tu-pian-markdown/</id>
+        <link href="https://tong125847.github.io/post/cha-ru-tu-pian-markdown/">
+        </link>
+        <updated>2020-09-24T06:32:35.000Z</updated>
+        <content type="html"><![CDATA[<pre><code class="language-text">Markdown插图片有三种方法，各种Markdown编辑器的插图方式也都包含在这三种方法之内。
+插图最基础的格式就是：
+
+![Alt text](图片链接 &quot;optional title&quot;)
+image.png
+
+插入本地图片
+只需要在基础语法的括号中填入图片的位置路径即可，支持绝对路径和相对路径。 
+例如： 
+
+![avatar](/home/picture/1.png)
+image.png
+
+插入网络图片
+只需要在基础语法的括号中填入图片的网络链接即可，现在已经有很多免费/收费图床和方便传图的小工具可选。 
+例如： 
+
+![avatar](http://baidu.com/pic/doge.png)
+image.png
+
+把图片存入markdown文件
+用base64转码工具把图片转成一段字符串，然后把字符串填到基础格式中链接的那个位置。 
+基础用法： 
+
+![avatar](data:image/png;base64,iVBORw0......) 
+这个时候会发现插入的这一长串字符串会把整个文章分割开，非常影响编写文章时的体验。如果能够把大段的base64字符串放在文章末尾，然后在文章中通过一个id来调用，文章就不会被分割的这么乱了。 
+比如： 
+
+![avatar][doge] 
+[doge]:data:image/png;base64,iVBORw0...... 
+然后，base64的图片编码如何得来？
+
+图片转化为base64字符串
+image.png
+
+base64字符串转化为图片
+image.png
+
+效果演示
+图片展示区域 
+
+image.png
+
+代码区域
+
+[base64str]:data:image/png;base64,iVBORw0KGg...
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[视频插入Markdown]]></title>
+        <id>https://tong125847.github.io/post/shi-pin/</id>
+        <link href="https://tong125847.github.io/post/shi-pin/">
+        </link>
+        <updated>2020-09-24T06:24:52.000Z</updated>
+        <content type="html"><![CDATA[<iframe height="400" width="600" src="请输入哔哩哔哩视频地址！updating！！！" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe><!-- 全屏允许 -->]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[网站分享]]></title>
+        <id>https://tong125847.github.io/post/wang-zhan-fen-xiang/</id>
+        <link href="https://tong125847.github.io/post/wang-zhan-fen-xiang/">
+        </link>
+        <updated>2020-09-24T06:08:47.000Z</updated>
+        <content type="html"><![CDATA[<pre><code class="language-html">http://www.mindline.cn/?src=baidu    思维导图
+https://blog.csdn.net/u014061630/article/details/81359144#25-%E4%BB%A3%E7%A0%81%E5%9D%97    markdown入门（CSDN）
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[This is a HTML test!]]></title>
         <id>https://tong125847.github.io/post/this-is-a-html-test/</id>

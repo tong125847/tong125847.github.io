@@ -217,33 +217,150 @@
     
             <div class="main">
                 <div class="container">
-                    <div class="post-wrap archive">
-                        
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                插入图片Markdown
+                            </h1>
                             
-                                <h3>
-                                    2020
-                                </h3>
+                                <!--en-->
+                                <div class="post-meta en">
+                                    Author:
+                                    <a itemprop="author" rel="author" href="/">
+                                        The Tong's blog
+                                    </a>
+                                    <span class="post-time">
+                                Date: <a href="#">2020-09-24</a>
+                            </span>
+                                    <span class="post-readtime">Reading Time:<a
+                                    href="#">1.4
+                                    mins</a></span>
+                                    <span class="post-words">words:<a href="#">370</a></span>
+                                    
+                                            Views:
+                                            <span data-hk-page="current"> - </span>
+                                            
+                                </div>
+                                
+                        </header>
+                        
+                        <div class="post-content">
+                            <pre><code class="language-text">Markdown插图片有三种方法，各种Markdown编辑器的插图方式也都包含在这三种方法之内。
+插图最基础的格式就是：
+
+![Alt text](图片链接 &quot;optional title&quot;)
+image.png
+
+插入本地图片
+只需要在基础语法的括号中填入图片的位置路径即可，支持绝对路径和相对路径。 
+例如： 
+
+![avatar](/home/picture/1.png)
+image.png
+
+插入网络图片
+只需要在基础语法的括号中填入图片的网络链接即可，现在已经有很多免费/收费图床和方便传图的小工具可选。 
+例如： 
+
+![avatar](http://baidu.com/pic/doge.png)
+image.png
+
+把图片存入markdown文件
+用base64转码工具把图片转成一段字符串，然后把字符串填到基础格式中链接的那个位置。 
+基础用法： 
+
+![avatar](data:image/png;base64,iVBORw0......) 
+这个时候会发现插入的这一长串字符串会把整个文章分割开，非常影响编写文章时的体验。如果能够把大段的base64字符串放在文章末尾，然后在文章中通过一个id来调用，文章就不会被分割的这么乱了。 
+比如： 
+
+![avatar][doge] 
+[doge]:data:image/png;base64,iVBORw0...... 
+然后，base64的图片编码如何得来？
+
+图片转化为base64字符串
+image.png
+
+base64字符串转化为图片
+image.png
+
+效果演示
+图片展示区域 
+
+image.png
+
+代码区域
+
+[base64str]:data:image/png;base64,iVBORw0KGg...
+</code></pre>
+
+                        </div>
+                        
+                            <div class="post-toc">
+                                
+                            </div>
+                            
                                 
                                     
+                                        <!--en-->
+                                        <section class="post-copyright en">
+                                            <p class="copyright-item">
+                                                <span>Author:</span>
+                                                <span>The Tong's blog</span>
+                                            </p>
 
-                                        <article class="archive-item">
-                                            <a class="archive-item-link" href="https://tong125847.github.io/post/this-is-a-html-test/">
-                                                This is a HTML test!
-                                            </a>
-                                            <span class="archive-item-date">2020-09-10 </span>
-                                        </article>
+                                            <p class="copyright-item">
+                                                <span>Permalink:</span>
+                                                <span><a href="https://tong125847.github.io/post/cha-ru-tu-pian-markdown/">https://tong125847.github.io/post/cha-ru-tu-pian-markdown/</a></span>
+                                            </p>
+
+                                            <p class="copyright-item">
+                                                <span>License:</span>
+                                                <span>MIT License</span>
+                                            </p>
+                                        </section>
                                         
-                                            
                                                 
-                    </div>
-                    <div class="pagination-container">
-                        
-                                                
+                                                    
+                                                        <!-- Share-->
+                                                        <span style="margin-right:15px">
+                                                    <i class="post-share"></i>
+                                                    <span>Share:</span>
+                                                        <a title="QR Code" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://tong125847.github.io/post/cha-ru-tu-pian-markdown/"><i class="fa fa-qrcode"></i></a>
+                                                        <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://tong125847.github.io/post/cha-ru-tu-pian-markdown/&sharesource=qzone&title=插入图片Markdown&pics=https://tong125847.github.io/images/avatar.png?v=1600929498795&summary="><i class="fa fa-qq"></i></a>
+                                                        <a title="Weibo" target="_blank" href="https://service.weibo.com/share/share.php?url=https://tong125847.github.io/post/cha-ru-tu-pian-markdown/&sharesource=weibo&title=插入图片Markdown + " - " + &pic="https://tong125847.github.io/images/avatar.png?v=1600929498795 "><i class="fa fa-weibo "></i></a>
                                                         
+                                                                </span>
+                                                                <!--en-->
+                                                                <section class="post-tags en ">
+                                                                    <div>
+                                                                        <span>Tag(s):</span>
+                                                                        <span class="tag ">
+                        
+                                                            </span>
+                                                                    </div>
+                                                                    <div>
+                                                                        <a href="javascript:window.history.back();">back</a>
+                                                                        <span>&dot;</span>
+                                                                        <a href="#">home</a>
+                                                                    </div>
+                                                                </section>
                                                                 
-                    </div>
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                            
+                                                                                                <a class="next" rel="next" href="https://tong125847.github.io/post/shi-pin/">
+                                                                                                    视频插入Markdown
+                                                                                                </a>
+                                                                                                
+                                                                                </section>
+                    </article>
                 </div>
+                
+                                            
             </div>
+    </div>
+    </div>
     </div>
     
     <div id="player"></div>
@@ -491,5 +608,8 @@
                 </script>
         </div>
 </body>
+<script>
+    scroll();
+</script>
 
 </html>
