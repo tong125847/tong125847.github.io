@@ -2069,15 +2069,23 @@ a {
 }
 
       .posttitlewithoutimg {
-        color: #e03131;
+        color: #3bc9db;
+      }
+    
+      .sitename {
+        color: #f03e3e;
       }
     
         .describtion {
           color: #7048e8;
         }
       
+        .menubutton {
+          color: #a5d8ff;
+        }
+      
         .posttitle {
-          color: #fa5252;
+          color: #ffc9c9;
         }
       
         #sitegotimeDate,#sitegotimes,#footinfo,#footinfo a{
