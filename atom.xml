@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://tong125847.github.io</id>
     <title>The Tong&apos;s blog</title>
-    <updated>2020-11-02T15:05:18.488Z</updated>
+    <updated>2020-12-04T14:19:55.571Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://tong125847.github.io"/>
     <link rel="self" href="https://tong125847.github.io/atom.xml"/>
@@ -11,7 +11,169 @@
     <icon>https://tong125847.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, The Tong&apos;s blog</rights>
     <entry>
-        <title type="html"><![CDATA[Ubuntu学习2020-11-02（第一天）]]></title>
+        <title type="html"><![CDATA[C语言随记]]></title>
+        <id>https://tong125847.github.io/post/c-yu-yan-sui-ji/</id>
+        <link href="https://tong125847.github.io/post/c-yu-yan-sui-ji/">
+        </link>
+        <updated>2020-12-04T14:12:40.000Z</updated>
+        <content type="html"><![CDATA[<p>结构体字节对齐，C语言结构体字节对齐详解</p>
+<pre><code class="language-c">struct STUDENT
+{
+    char a;
+    int b;
+}data;
+</code></pre>
+<p>如上结构体变量 data 占多少字节？char 占 1 字节，int 占 4 字节，所以总共占 5 字节吗？我们写一个程序验证一下：</p>
+<pre><code class="language-c"># include &lt;stdio.h&gt;
+struct STUDENT
+{
+    char a;
+    int b;
+}data;
+int main(void)
+{
+    printf(&quot;%p, %p\n&quot;, &amp;data.a, &amp;data.b);  //%p是取地址输出控制符
+    printf(&quot;%d\n&quot;, sizeof(data));
+    return 0;
+}
+</code></pre>
+<p>输出结果是：<br>
+00427E68, 00427E6C<br>
+8</p>
+<p>我们看到 data 不是占 5 字节，而是占 8 字节。变量 a 的地址是从 00427E68 到 00427E6B，占 4字 节；变量 b 的地址是从 00427E6C 到 00427E6F，也占 4 字节。b 占 4 字节我们能理解，但 a 是 char 型，char 型不是占 1 字节吗，这里为什么占 4 字节？其实不是它占了 4 字节，它占的还是 1 字节，只不过结构体中有一个字节对齐的概念。</p>
+<p>什么叫字节对齐？我们知道结构体是一种构造数据类型，里面可以有不同数据类型的成员。在这些成员中，不同的数据类型所占的内存空间是不同的。那么系统是怎么给结构体变量的成员分配内存的呢？或者说这些成员在内存中是如何存储的呢？通过上面这个例子我们知道肯定不是顺序存储的。</p>
+<p>那么到底是怎么存储的呢？就是按字节对齐的方式存储的！即以结构体成员中占内存最多的数据类型所占的字节数为标准，所有的成员在分配内存时都要与这个长度对齐。我们举一个例子：我们以上面这个程序为例，结构体变量 data 的成员中占内存最多的数据类型是 int 型，其占 4 字节的内存空间，那么所有成员在分配内存时都要与 4 字节的长度对齐。也就是说，虽然 char 只占 1 字节，但是为了与 4 字节的长度对齐，它后面的 3 字节都会空着，即：<br>
+<img src="https://tong125847.github.io/post-images/1607091275003.png" alt="" loading="lazy"><br>
+所谓空着其实也不是里面真的什么都没有，它就同定义了一个变量但没有初始化一样，里面是一个很小的、负的填充字。为了便于表达，我们就暂且称之为空好了。</p>
+<p>如果结构体成员为：</p>
+<pre><code class="language-c">struct STUDENT
+{
+    char a;
+    char b;
+    int c;
+}data;
+</code></pre>
+<p>那么这三个成员是怎么对齐的？a 和 b 后面都是空 3 字节吗？不是！如果没有 b，那么 a 后面就空 3 字节，有了 b 则 b 就接着 a 后面填充。即：<br>
+<img src="https://tong125847.github.io/post-images/1607091342132.png" alt="" loading="lazy"><br>
+所以这时候结构体变量 data 仍占 8 字节。我们写一个程序验证一下：</p>
+<pre><code class="language-c"># include &lt;stdio.h&gt;
+struct STUDENT
+{
+    char a;
+    char b;
+    int c;
+}data;
+int main(void)
+{
+    printf(&quot;%p, %p, %p\n&quot;, &amp;data.a, &amp;data.b, &amp;data.c);  //%p是取地址输出控制符
+    printf(&quot;%d\n&quot;, sizeof(data));
+    return 0;
+}
+</code></pre>
+<p>输出结果是：<br>
+00427E68, 00427E69, 00427E6C<br>
+8</p>
+<p>这时我们发现一个问题：所有成员在分配内存的时候都与 4 字节的长度对齐，多个 char 类型时是依次往后填充，但是 char 型后面的 int 型为什么不紧接着后面填充？为什么要另起一行？也就是说，到底什么时候是接在后面填充，什么时候是另起一行填充？</p>
+<p>我们说，所有的成员在分配内存时都要与所有成员中占内存最多的数据类型所占内存空间的字节数对齐。假如这个字节数为 N，那么对齐的原则是：理论上所有成员在分配内存时都是紧接在前一个变量后面依次填充的，但是如果是“以 N 对齐”为原则，那么，如果一行中剩下的空间不足以填充某成员变量，即剩下的空间小于某成员变量的数据类型所占的字节数，则该成员变量在分配内存时另起一行分配。</p>
+<p>下面再来举一个例子，大家觉得下面这个结构体变量data占多少字节？</p>
+<pre><code class="language-c">struct STUDENT
+{
+    char a;
+    char b;
+    char c;
+    char d;
+    char e;
+    int f;
+}data;
+</code></pre>
+<p>首先最长的数据类型占 4 字节，所以是以 4 对齐。然后 a 占 1 字节，b 接在 a 后面占 1 字节，c 接在 b 后面占 1 字节，d 接在 c 后面占 1 字节，此时满 4 字节了，e 再来就要另起一行。f 想紧接着 e 后面分配，但 e 后面还剩 3 字节，小于 int 类型的 4 字节，所以 f 另起一行。即该结构体变量分配内存时如下：<br>
+<img src="https://tong125847.github.io/post-images/1607091405492.png" alt="" loading="lazy"><br>
+即总共占 12 字节。我们写一个程序验证一下：</p>
+<pre><code class="language-c"># include &lt;stdio.h&gt;
+struct STUDENT
+{
+    char a;
+    char b;
+    char c;
+    char d;
+    char e;
+    int f;
+}data;
+int main(void)
+{
+    printf(&quot;%p, %p, %p, %p, %p, %p\n&quot;, &amp;data.a, &amp;data.b, &amp;data.c, &amp;data.d, &amp;data.e, &amp;data.f);  //%p是取地址输出控制符
+    printf(&quot;%d\n&quot;, sizeof(data));
+    return 0;
+}
+</code></pre>
+<p>输出结果是：<br>
+00427E68, 00427E69, 00427E6A, 00427E6B, 00427E6C, 00427E70<br>
+12</p>
+<p>现在大家应该能掌握字节对齐的精髓了吧！下面给大家出一个题目试试掌握情况。我们将前面的结构体改一下：</p>
+<pre><code class="language-c">struct STUDENT
+{
+    char a;
+    int b;
+    char c;
+}data;
+</code></pre>
+<p>即将原来第二个和第三个声明交换了位置，大家看看现在 data 变量占多少字节？没错，是 12 字节。首先最长类型所占字节数为 4，所以是以 4 对齐。分配内存的时候 a 占 1 字节，然后 b 想紧接着 a 后面存储，但 a 后面还剩 3 字节，小于 b 的 4 字节，所以 b 另起一行分配。然后 c 想紧接着 b 后面分配，但是 b 后面没空了，所以 c 另起一行分配。所以总共 12 字节。内存分配图如下所示：<br>
+<img src="https://tong125847.github.io/post-images/1607091471752.png" alt="" loading="lazy"><br>
+下面写一个程序验证一下：</p>
+<pre><code class="language-c"># include &lt;stdio.h&gt;
+struct STUDENT
+{
+    char a;
+    int b;
+    char c;
+}data;
+int main(void)
+{
+    printf(&quot;%p, %p, %p\n&quot;, &amp;data.a, &amp;data.b, &amp;data.c);  //%p是取地址输出控制符
+    printf(&quot;%d\n&quot;, sizeof(data));
+    return 0;
+}```
+输出结果是：
+00427E68, 00427E6C, 00427E70
+12
+
+我们看到，同样三个数据类型，只不过交换了一下位置，结构体变量data所占的内存空间就由8字节变成12字节，多了4字节。这就告诉我们，在声明结构体类型时，各类型成员的前后位置会对该结构体类型定义的结构体变量所占的字节数产生影响。没有规律的定义会增加系统给结构体变量分配的字节数，降低内存分配的效率。但这种影响对操作系统来说几乎是可以忽略不计的！所以我们在写程序的时候，如果有心的话，声明结构体类型时就按成员类型所占字节数从小到大写，或从大到小写。但是如果没有按规律书写的话也不要紧，声明结构体类型时并非一定要从小到大声明，只是为了说明“字节对齐”这个概念！而且有时候为了增强程序的可读性我们就需要没有规律地写，比如存储一个人的信息：
+```c
+struct STUDENT
+{
+    char name[10];
+    int age;
+    char sex;
+    float score;
+}data;
+</code></pre>
+<p>正常的思维是将“性别”放在“年龄”后面，但如果为了内存对齐而交换它们的位置，总让人觉得有点别扭。所以我说“尽量”有规律地写！</p>
+<p>这时又有人会提出一个问题：“上面这个结构体变量 data 中有成员 char name[10]，长度最长，是 10，那是不是要以 10 对齐？”不是，char a[10] 的本质是 10 个 char 变量，所以就把它当成 10 个 char 变量看就行了。所以结构体变量 data 中成员最长类型占 4 字节，还是以 4 对齐。该结构体变量分配内存时情况如下：<br>
+<img src="https://tong125847.github.io/post-images/1607091536679.png" alt="" loading="lazy"></p>
+<p>总共 24 字节，我们写一个程序验证一下：</p>
+<pre><code class="language-c"># include &lt;stdio.h&gt;
+struct STUDENT
+{
+    char name[10];
+    int age;
+    char sex;
+    float score;
+}data;
+int main(void)
+{
+    printf(&quot;%p, %p, %p, %p, %p, %p, %p, %p, %p, %p, %p, %p, %p\n&quot;, &amp;data.name[0], &amp;data.name[1], &amp;data.name[2], &amp;data.name[3], &amp;data.name[4], &amp;data.name[5], &amp;data.name[6], &amp;data.name[7], &amp;data.name[8], &amp;data.name[9], &amp;data.age, &amp;data.sex, &amp;data.score);
+    printf(&quot;%d\n&quot;, sizeof(data));
+    return 0;
+}
+</code></pre>
+<p>输出结果是：<br>
+00427E68, 00427E69, 00427E6A, 00427E6B, 00427E6C, 00427E6D, 00427E6E,<br>
+00427E6F, 00427E70, 00427E71, 00427E74, 00427E78, 00427E7C<br>
+24</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Ubuntu学习（第一天）]]></title>
         <id>https://tong125847.github.io/post/ubuntu-xue-xi-2020-11-02di-yi-tian/</id>
         <link href="https://tong125847.github.io/post/ubuntu-xue-xi-2020-11-02di-yi-tian/">
         </link>
