@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://tong125847.github.io</id>
     <title>The Tong&apos;s blog</title>
-    <updated>2020-12-21T08:40:59.542Z</updated>
+    <updated>2020-12-21T09:35:03.593Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://tong125847.github.io"/>
     <link rel="self" href="https://tong125847.github.io/atom.xml"/>
@@ -131,6 +131,7 @@ void link_delete_num(STU **p_head,int num)
         pf-&gt;next=pb-&gt;next;
     }
     free(pb);
+    pb=NULL;
     }
     else
     {
@@ -410,6 +411,138 @@ int main(void)
 00427E68, 00427E69, 00427E6A, 00427E6B, 00427E6C, 00427E6D, 00427E6E,<br>
 00427E6F, 00427E70, 00427E71, 00427E74, 00427E78, 00427E7C<br>
 24</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Qt Creator学习]]></title>
+        <id>https://tong125847.github.io/post/qt-creator-xue-xi/</id>
+        <link href="https://tong125847.github.io/post/qt-creator-xue-xi/">
+        </link>
+        <updated>2020-11-29T08:16:26.000Z</updated>
+        <content type="html"><![CDATA[<p>杂：Qt的安装，工程的创建。Application---Qt Widgets Application（创建一个桌面Qt应用，包含一个基于Qt设计师的主窗体）</p>
+<p>widget空窗口<br>
+{<br>
+mainwindow主窗口<br>
+dialog对话框<br>
+}<br>
+版本控制系统（SVN   Git）代码同步工具<br>
+文件：<br>
+.pro</p>
+<pre><code class="language-text">    #-------------------------------------------------
+#
+# Project created by QtCreator 2020-11-29T16:30:48
+#
+#-------------------------------------------------
+#为QT添加核心模块   gui图形用户界面模块
+QT       += core gui
+#4.0以后的版本，添加widgets模块
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+
+#生成的.exe应用程序 名字
+TARGET = 2020-11-29
+#使用的模板
+TEMPLATE = app
+
+# The following define makes your compiler emit warnings if you use
+# any feature of Qt which has been marked as deprecated (the exact warnings
+# depend on your compiler). Please consult the documentation of the
+# deprecated API in order to know how to port your code away from it.
+#定义选项添加QT_DEPRECATED_WARNINGS当API过时时，编译器提升警告
+DEFINES += QT_DEPRECATED_WARNINGS
+
+# You can also make your code fail to compile if you use deprecated APIs.
+# In order to do so, uncomment the following line.
+# You can also select to disable deprecated APIs only up to a certain version of Qt.
+#DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
+#支持C++11新特性
+CONFIG += c++11
+
+SOURCES += \
+        main.cpp \
+        widgets.cpp
+
+HEADERS += \
+        widgets.h
+
+FORMS += \
+        widgets.ui
+
+# Default rules for deployment.
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
+    ```
+main.cpp
+```cpp
+#include &quot;widgets.h&quot;
+#include &lt;QApplication&gt;//应用程序头文件
+/*
+ *QT编辑器快捷键
+ * 注释   Ctrl+/
+ * 运行   Ctrl+r
+ * 构建   Ctrl+b
+ * 转到定义  F2
+ * 返回Alt+left键
+ * 前进Alt+right键
+ */
+int main(int argc, char *argv[])
+{
+    QApplication a(argc, argv);//定义应用程序对象
+    widgets w;//定义空窗口对象
+    w.show();//调用空窗口子函数   显示窗口
+
+    return a.exec();//调用应用程序对象消息循环函数
+}
+</code></pre>
+<p>.h</p>
+<pre><code class="language-text">#ifndef WIDGETS_H
+#define WIDGETS_H//宏定义
+
+#include &lt;QMainWindow&gt;//包含Qt空窗口头文件
+
+namespace Ui {
+class widgets;
+}
+
+class widgets : public QMainWindow
+{
+    Q_OBJECT//支持信号  和  槽
+
+public:
+    explicit widgets(QWidget *parent = nullptr);//构造函数
+    ~widgets();//析构函数
+
+private:
+    Ui::widgets *ui;
+};
+
+#endif // WIDGETS_H
+
+</code></pre>
+<p>.cpp</p>
+<pre><code class="language-cpp">#include &quot;widgets.h&quot;
+#include &quot;ui_widgets.h&quot;
+
+widgets::widgets(QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::widgets)
+{
+    ui-&gt;setupUi(this);
+    this-&gt;setWindowTitle(&quot;Hello QT&quot;);//设置窗口标题
+    this-&gt;resize(400,800);//设置窗口大小（宽x高）
+    //this-&gt;setFixedSize(200,200);//固定窗口大小，无法该改变窗口大小和移动
+    //创建按钮
+    
+
+}
+
+widgets::~widgets()
+{
+    delete ui;
+}
+
+</code></pre>
+<p>.ui</p>
 ]]></content>
     </entry>
     <entry>

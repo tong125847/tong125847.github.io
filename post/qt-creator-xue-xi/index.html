@@ -220,7 +220,7 @@
                     <article class="post-wrap">
                         <header class="post-header">
                             <h1 class="post-title">
-                                链表
+                                Qt Creator学习
                             </h1>
                             
                                     <!--zh-->
@@ -229,11 +229,11 @@
                                         <a itemprop="author" rel="author" href="/">
                                             The Tong's blog
                                         </a>
-                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2020-12-21</a></span>
+                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2020-11-29</a></span>
                                         <span class="post-readtime">&#x9605;&#x8BFB;&#x65F6;&#x95F4;:<a
-                                    href="#">4.0
+                                    href="#">2.7
                                     &#x5206;&#x949F;</a></span>
-                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">718</a></span>
+                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">548</a></span>
                                         
                                                 阅读量:
                                                 <span data-hk-page="current"> - </span>
@@ -243,239 +243,130 @@
                         </header>
                         
                         <div class="post-content">
-                            <pre><code class="language-c">#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-#include &lt;string.h&gt;
-typedef struct student
-{
-    int num;
-    int score;
-    char name[20];
-    struct student *next;
-} STU;
-//链表创建(尾插法)
-void link_creat_head(STU **p_head,STU *p_new)
-{
-    STU *p_mov=*p_head;
-    if(*p_head==NULL)
-    {*p_head=p_new;
-    p_new-&gt;next=NULL;
-    }
-    else
-    {
-        while(p_mov-&gt;next!=NULL)
-        {p_mov=p_mov-&gt;next;
-        }
-        p_mov-&gt;next=p_new;
-        p_new-&gt;next=NULL;
+                            <p>杂：Qt的安装，工程的创建。Application---Qt Widgets Application（创建一个桌面Qt应用，包含一个基于Qt设计师的主窗体）</p>
+<p>widget空窗口<br>
+{<br>
+mainwindow主窗口<br>
+dialog对话框<br>
+}<br>
+版本控制系统（SVN   Git）代码同步工具<br>
+文件：<br>
+.pro</p>
+<pre><code class="language-text">    #-------------------------------------------------
+#
+# Project created by QtCreator 2020-11-29T16:30:48
+#
+#-------------------------------------------------
+#为QT添加核心模块   gui图形用户界面模块
+QT       += core gui
+#4.0以后的版本，添加widgets模块
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-    }
-}
-//遍历链表
-void link_print(STU *head)
-{
-    STU *p_mov;
-    p_mov=head;
-    while(p_mov!=NULL)
-    {
-        printf(&quot;num=%d,score=%d,name=%s\n&quot;,p_mov-&gt;num,p_mov-&gt;score,p_mov-&gt;name);
-        p_mov=p_mov-&gt;next;
-    }
+#生成的.exe应用程序 名字
+TARGET = 2020-11-29
+#使用的模板
+TEMPLATE = app
 
-}
-//释放链表
-void link_free(STU **p_head)
-{
-    STU *pb=*p_head;
-    while(*p_head!=NULL)
-    {
-        pb=*p_head;
-        *p_head=(*p_head)-&gt;next;
-        free(pb);
-        pb=NULL;
-    }
-    printf(&quot;链表释放成功&quot;);
-}
-//链表的查找（查找某个学号）
- STU* link_search_num(STU *head,int num)
-{   STU *p_mov;
-    p_mov=head;
-    while(p_mov!=NULL)
-    {
-        if(p_mov-&gt;num==num)
-        {
-            printf(&quot;找到了！！&quot;);
-            return  p_mov;
+# The following define makes your compiler emit warnings if you use
+# any feature of Qt which has been marked as deprecated (the exact warnings
+# depend on your compiler). Please consult the documentation of the
+# deprecated API in order to know how to port your code away from it.
+#定义选项添加QT_DEPRECATED_WARNINGS当API过时时，编译器提升警告
+DEFINES += QT_DEPRECATED_WARNINGS
 
-        }
-        p_mov=p_mov-&gt;next;
+# You can also make your code fail to compile if you use deprecated APIs.
+# In order to do so, uncomment the following line.
+# You can also select to disable deprecated APIs only up to a certain version of Qt.
+#DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
+#支持C++11新特性
+CONFIG += c++11
 
-    }
-            printf(&quot;没找到！&quot;);
-    return NULL;
-}
-//链表的查找（查找某个姓名）
-STU *link_search_name(STU *head,char *name)
-{
-    STU *p_mov;
-    p_mov=head;
-    while(p_mov!=NULL)
-    {
-        if(strcmp(p_mov-&gt;name,name)==0)
-        {
-            printf(&quot;找到了！！&quot;);
-            return  p_mov;
-        }
+SOURCES += \
+        main.cpp \
+        widgets.cpp
 
-    }
-            printf(&quot;没找到！&quot;);
-            return NULL;
-}
-//链表节点的删除
-void link_delete_num(STU **p_head,int num)
-{
-    STU *pb,*pf;
-    pb=*p_head;pf=*p_head;
-    if(*p_head==NULL)
-    {
-        printf(&quot;链表为空，没有您要删除的节点&quot;);
-        return;
-    }
-    while((pb-&gt;num!=num)&amp;&amp;(pb-&gt;next!=NULL))
-    {
-        pf=pb;
-        pb=pb-&gt;next;
-    }
-    if(pb-&gt;num==num)
-    {
-        if(pb==*p_head)
-       {
-            *p_head=pb-&gt;next;
-            printf(&quot;已删除\n&quot;);
-       }
-    else
-    {   printf(&quot;删除成功\n&quot;);
-        pf-&gt;next=pb-&gt;next;
-    }
-    free(pb);
-    pb=NULL;
-    }
-    else
-    {
-        printf(&quot;没有您要删除的节点&quot;);
-    }
-}
-//插入指定位置前中后
-void link_insert_num(STU **p_head,STU *p_new)
-{
-    STU *pb,*pf;
-    pb=pf=*p_head;
-    if(*p_head==NULL)
-    {
-        *p_head=p_new;
-        p_new-&gt;next=NULL;
-        return ;
-    }
-    while((p_new-&gt;num&gt;=pb-&gt;num)&amp;&amp;(pb-&gt;next!=NULL))
-    {
-        pf=pb;
-        pb=pb-&gt;next;
-    }
-    if(p_new-&gt;num&lt;pb-&gt;num)
-    {
-        p_new-&gt;next=*p_head;
-        *p_head=p_new;
-    }
-    else
-    {
-        pb-&gt;next=p_new;
-        p_new-&gt;next=NULL;
-    }
-}
-//链表的排序
-void link_order(STU *head)
-{
-    STU *pb,*pf,temp;
-    pf=head;
-    if(head==NULL)
-    {
-        printf(&quot;链表为空，不用排序&quot;);
-        return;
-    }
-    if(head-&gt;next==NULL)
-    {
-        printf(&quot;只有一个节点，不用排序&quot;);
-        return;
-    }
-    while(pf-&gt;next!=NULL)
-    {
-        pb=pf-&gt;next;
-        while(pb!=NULL)
-        {
-            if(pf-&gt;num&gt;pb-&gt;num)
-            {temp=*pb;
-            *pb=*pf;
-            *pf=temp;
+HEADERS += \
+        widgets.h
 
-            temp.next=pb-&gt;next;
-            pb-&gt;next=pf-&gt;next;
-            pf-&gt;next=temp.next;
-            }
-            pb=pb-&gt;next;
-        }
-         pf=pf-&gt;next;
-    }
-}
-//链表逆序
-STU *link_reverse(STU *head)
+FORMS += \
+        widgets.ui
+
+# Default rules for deployment.
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
+    ```
+main.cpp
+```cpp
+#include &quot;widgets.h&quot;
+#include &lt;QApplication&gt;//应用程序头文件
+/*
+ *QT编辑器快捷键
+ * 注释   Ctrl+/
+ * 运行   Ctrl+r
+ * 构建   Ctrl+b
+ * 转到定义  F2
+ * 返回Alt+left键
+ * 前进Alt+right键
+ */
+int main(int argc, char *argv[])
 {
-    STU *pf,*pb,*r;
-    pf=head;
-    pb=pf-&gt;next;
-    while(pb!=NULL)
-    {
-        r=pb-&gt;next;
-        pb-&gt;next=pf;
-        pf=pb;
-        pb=r;
-    }
-    head-&gt;next=NULL;
-    head=pf;
-    return head;
-}
-int main()
-{   STU *head=NULL,*p_new=NULL;
-    int num,i;
-    printf(&quot;请输入链表初始化个数\n&quot;);
-    scanf(&quot;%d&quot;,&amp;num);
-    for(i=0;i&lt;num;i++)
-    {
-        p_new=(STU*)malloc(sizeof(STU));
-        printf(&quot;请输入学号、分数、名字：\n&quot;);
-        scanf(&quot;%d %d %s&quot;,&amp;p_new-&gt;num,&amp;p_new-&gt;score,p_new-&gt;name);
-        link_creat_head(&amp;head,p_new);
-    }
-     link_print(head);
-     //link_free(&amp;head);
-   //  link_search_num(head,1001);
-   //  link_search_name(head,&quot;xxx&quot;);
-     link_delete_num(&amp;head,1001);
-    /* while(1)
-     {
-     printf(&quot;请输入您要插入的节点的num score name\n&quot;);
-     p_new=(STU*)malloc(sizeof(STU));
-     scanf(&quot;%d %d %s&quot;,&amp;p_new-&gt;num,&amp;p_new-&gt;score,p_new-&gt;name);
-     link_insert_num(&amp;head,p_new);
-     link_print(head);
-     }*/
-     //link_order(head);
-     printf(&quot;**********************\n&quot;);
-     //head=link_reverse(head);
-     link_print(head);
-     link_free(&amp;head);
-return 0;
+    QApplication a(argc, argv);//定义应用程序对象
+    widgets w;//定义空窗口对象
+    w.show();//调用空窗口子函数   显示窗口
+
+    return a.exec();//调用应用程序对象消息循环函数
 }
 </code></pre>
+<p>.h</p>
+<pre><code class="language-text">#ifndef WIDGETS_H
+#define WIDGETS_H//宏定义
+
+#include &lt;QMainWindow&gt;//包含Qt空窗口头文件
+
+namespace Ui {
+class widgets;
+}
+
+class widgets : public QMainWindow
+{
+    Q_OBJECT//支持信号  和  槽
+
+public:
+    explicit widgets(QWidget *parent = nullptr);//构造函数
+    ~widgets();//析构函数
+
+private:
+    Ui::widgets *ui;
+};
+
+#endif // WIDGETS_H
+
+</code></pre>
+<p>.cpp</p>
+<pre><code class="language-cpp">#include &quot;widgets.h&quot;
+#include &quot;ui_widgets.h&quot;
+
+widgets::widgets(QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::widgets)
+{
+    ui-&gt;setupUi(this);
+    this-&gt;setWindowTitle(&quot;Hello QT&quot;);//设置窗口标题
+    this-&gt;resize(400,800);//设置窗口大小（宽x高）
+    //this-&gt;setFixedSize(200,200);//固定窗口大小，无法该改变窗口大小和移动
+    //创建按钮
+    
+
+}
+
+widgets::~widgets()
+{
+    delete ui;
+}
+
+</code></pre>
+<p>.ui</p>
 
                         </div>
                         
@@ -494,7 +385,7 @@ return 0;
 
                                                 <p class="copyright-item">
                                                     <span>&#x6C38;&#x4E45;&#x94FE;&#x63A5;:</span>
-                                                    <span><a href="https://tong125847.github.io/post/lian-biao/">https://tong125847.github.io/post/lian-biao/</a></span>
+                                                    <span><a href="https://tong125847.github.io/post/qt-creator-xue-xi/">https://tong125847.github.io/post/qt-creator-xue-xi/</a></span>
                                                 </p>
 
                                                 <p class="copyright-item">
@@ -509,9 +400,9 @@ return 0;
                                                                     <span style="margin-right:15px">
                         <i class="post-share"></i>
                         <span>&#x5206;&#x4EAB;:</span>
-                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://tong125847.github.io/post/lian-biao/"><i class="fa fa-qrcode"></i></a>
-                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://tong125847.github.io/post/lian-biao/&sharesource=qzone&title=链表&pics=https://tong125847.github.io/images/avatar.png?v=1608543296502&summary="><i class="fa fa-qq"></i></a>
-                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://tong125847.github.io/post/lian-biao/&sharesource=weibo&title=链表 + " - " + &pic="https://tong125847.github.io/images/avatar.png?v=1608543296502 "><i class="fa fa-weibo "></i></a>
+                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://tong125847.github.io/post/qt-creator-xue-xi/"><i class="fa fa-qrcode"></i></a>
+                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://tong125847.github.io/post/qt-creator-xue-xi/&sharesource=qzone&title=Qt Creator学习&pics=https://tong125847.github.io/images/avatar.png?v=1608543296502&summary="><i class="fa fa-qq"></i></a>
+                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://tong125847.github.io/post/qt-creator-xue-xi/&sharesource=weibo&title=Qt Creator学习 + " - " + &pic="https://tong125847.github.io/images/avatar.png?v=1608543296502 "><i class="fa fa-weibo "></i></a>
 
                                                                     </span>
                                                                     
@@ -535,9 +426,13 @@ return 0;
                                                                                 <!---->
                                                                                 <section class="post-nav">
                                                                                     
+                                                                                        <a class="prev" rel="prev" href="https://tong125847.github.io/post/c-yu-yan-sui-ji/">
+                                                                                            C语言随记
+                                                                                        </a>
+                                                                                        
                                                                                             
-                                                                                                <a class="next" rel="next" href="https://tong125847.github.io/post/c-yu-yan-sui-ji/">
-                                                                                                    C语言随记
+                                                                                                <a class="next" rel="next" href="https://tong125847.github.io/post/ubuntu-xue-xi-2020-11-02di-yi-tian/">
+                                                                                                    Ubuntu学习（第一天）
                                                                                                 </a>
                                                                                                 
                                                                                 </section>
