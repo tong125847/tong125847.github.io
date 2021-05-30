@@ -220,7 +220,7 @@
                     <article class="post-wrap">
                         <header class="post-header">
                             <h1 class="post-title">
-                                Ubuntu学习（第一天）
+                                一个C语言高校学生管理系统
                             </h1>
                             
                                     <!--zh-->
@@ -229,11 +229,11 @@
                                         <a itemprop="author" rel="author" href="/">
                                             The Tong's blog
                                         </a>
-                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2020-11-02</a></span>
+                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2021-05-30</a></span>
                                         <span class="post-readtime">&#x9605;&#x8BFB;&#x65F6;&#x95F4;:<a
-                                    href="#">5.3
+                                    href="#">9.1
                                     &#x5206;&#x949F;</a></span>
-                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">1259</a></span>
+                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">1727</a></span>
                                         
                                                 阅读量:
                                                 <span data-hk-page="current"> - </span>
@@ -242,232 +242,451 @@
                                     
                         </header>
                         
-                            <img class="post-feature-image" src="https://tong125847.github.io/post-images/ubuntu-xue-xi-2020-11-02di-yi-tian.png" alt="">
-                          
                         <div class="post-content">
-                            <pre><code class="language-text">==========开发环境=================
-Ubuntu 16.04		64位的linux
-系统
-Ubuntu 12.04		32位的linux系统
-6818开发板---32位的linux内核，使用是linux内核6.25.7.35版本
-如果要用64位系统开发32位的开发板，需要搭建编译工具环境
-==========Linux设置共享文件夹==========
-（1）在电脑中新建一个可以共享的文件夹
-（2）点击”虚拟机”---“设置”---“选项”---“共享文件夹”
----“总是启用”---“添加”---输入被共享的文件夹名称，然
-后一直点“下一步”，直到“完成”。
-</code></pre>
-<figure data-type="image" tabindex="1"><img src="https://tong125847.github.io/post-images/1604326316690.png" alt="" loading="lazy"></figure>
-<pre><code class="language-html">&lt;www.kernel.org&gt;
-</code></pre>
-<pre><code class="language-text">===========常用linux命令=============
-（1）cd进入或者退出文件夹
-	cd  ..  			        退出当前文件夹，回到上一级目录
-    cd  +文件夹名称    进入到该文件夹
-</code></pre>
-<figure data-type="image" tabindex="2"><img src="https://tong125847.github.io/post-images/1604326378828.png" alt="" loading="lazy"></figure>
-<pre><code class="language-text">    （2）ls 查看文件夹内容
-    ls                 查看当前文件夹的名称
-    ls  -l             查看当前文件夹中文件的详细信
-</code></pre>
-<figure data-type="image" tabindex="3"><img src="https://tong125847.github.io/post-images/1604326475362.png" alt="" loading="lazy"></figure>
-<pre><code class="language-text">（3）touch  创建文件
-</code></pre>
-<figure data-type="image" tabindex="4"><img src="https://tong125847.github.io/post-images/1604326971344.png" alt="" loading="lazy"></figure>
-<pre><code class="language-text">（4）rm     删除文件
-</code></pre>
-<figure data-type="image" tabindex="5"><img src="https://tong125847.github.io/post-images/1604327440393.png" alt="" loading="lazy"></figure>
-<pre><code class="language-text">（5）mkdir   创建文件夹
-     mkdir + 名称
-</code></pre>
-<figure data-type="image" tabindex="6"><img src="https://tong125847.github.io/post-images/1604327449134.png" alt="" loading="lazy"></figure>
-<pre><code class="language-text">（6）rmdir    删除文件夹(默认要求文件夹为空)
-</code></pre>
-<figure data-type="image" tabindex="7"><img src="https://tong125847.github.io/post-images/1604327456995.png" alt="" loading="lazy"></figure>
-<pre><code class="language-text">（7）cp     拷贝文件
-     cp  文件1  文件2    拷贝普通文件
-</code></pre>
-<figure data-type="image" tabindex="8"><img src="https://tong125847.github.io/post-images/1604327507395.png" alt="" loading="lazy"></figure>
-<pre><code class="language-text"></code></pre>
-<figure data-type="image" tabindex="9"><img src="https://tong125847.github.io/post-images/1604327546970.png" alt="" loading="lazy"></figure>
-<pre><code class="language-text">       其他命令：chmod，ifconfig,mv等等 
-</code></pre>
-<pre><code class="language-text">练习一：
-	设置共享文件夹，在共享文件夹中创建111,222,333 三个文件夹，并且在文件夹中分别创建同名文件，然后使用cp命令拷贝111文件夹成777。
-=================================
-修改终端颜色：
-	在终端的任意空白位置，右键选择“Profiles”----“Profiles Preference”----“color”就可以自行调整终端的颜色
-
-rm  文件名称  -rf       强制删除文件，不管该文件是什么
-
-pwd :查看当前所在的路径
-
-/mnt/hgfs：ubuntu共享文件夹的标准前缀。
-
-写代码的文件: 源代码
-可以运行的文件:  可执行程序
-编译程序：
-			gcc   源代码   ‘-o’   可执行程序
-运行可执行程序:
- 			./可执行程序
-</code></pre>
-<figure data-type="image" tabindex="10"><img src="https://tong125847.github.io/post-images/1604327757375.png" alt="" loading="lazy"></figure>
-<pre><code class="language-text"> 建议同学们在编写程序的时候，把“文件扩展名”√上，防止文件名弄错。
-</code></pre>
-<figure data-type="image" tabindex="11"><img src="https://tong125847.github.io/post-images/1604327790354.png" alt="" loading="lazy"></figure>
-<pre><code class="language-text">===============程序编译==================
-</code></pre>
-<figure data-type="image" tabindex="12"><img src="https://tong125847.github.io/post-images/1604327806349.png" alt="" loading="lazy"></figure>
-<pre><code class="language-text">（1）解析头文件，解析宏定义	
-</code></pre>
-<figure data-type="image" tabindex="13"><img src="https://tong125847.github.io/post-images/1604327998667.png" alt="" loading="lazy"></figure>
-<pre><code class="language-text">	得到的hello.i仍然是高级语言
-</code></pre>
-<pre><code class="language-text">（2）把高级语言转成汇编语言
-</code></pre>
-<figure data-type="image" tabindex="14"><img src="https://tong125847.github.io/post-images/1604328015681.png" alt="" loading="lazy"></figure>
-<pre><code class="language-text">得到的hello.s是汇编语言
-（3）把汇编语言转成二进制机器语言
-</code></pre>
-<figure data-type="image" tabindex="15"><img src="https://tong125847.github.io/post-images/1604328025186.png" alt="" loading="lazy"></figure>
-<pre><code class="language-text">得到的hello.o就是机器语言
-（4）把一个或多个链接文件组合成一个可执行程序
-</code></pre>
-<figure data-type="image" tabindex="16"><img src="https://tong125847.github.io/post-images/1604328033913.png" alt="" loading="lazy"></figure>
-<pre><code class="language-text">
-得到的就是可执行文件
-综合在一起：
-</code></pre>
-<figure data-type="image" tabindex="17"><img src="https://tong125847.github.io/post-images/1604328093045.png" alt="" loading="lazy"></figure>
-<pre><code class="language-text">=======================C语言常用结构=======================
-</code></pre>
-<pre><code class="language-text">（1）数据类型
-	int类型     4字节      存放整型数据
-char类型    1字节     存放字符类型数据，但同样也可以表示0~255的数值。
-						具体数值可以查看ASCII表格，使用”man ASCII”。
-（2）循环
-	for循环
-	for(初始条件 ； 判断条件 ； 结束动作 )
-	{
-		执行动作
-	}
-	
-	当初始条件满足判断条件并且为真的时候，程序运行”执行动作”,当“执行动作”结束以后，运行一次“结束动作”，然后再”判断条件”。
-	
-	while循环
-	while(判断条件)
-	{
-		执行动作
-	}
-	当判断条件是真的时候，程序运行执行动作
-
-使用printf打印倒的三层三角形
-*****
- ***
-  *
-test1.c
-
-练习2：
-使用printf打印：正的四层三角形
-   *
-  ***
- *****
-*******
-
-作业：
-	在网络上找一个叫做“2048”的游戏，然后了解其中的数学逻辑。
-
-</code></pre>
-<pre><code class="language-c">//data_type
-#include &lt;stdio.h&gt;
-int main()
+                            <pre><code class="language-c">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;//从键盘接收一个按键，无序按回车的那种
+#include&lt;stdlib.h&gt;
+#include&lt;string.h&gt;
+//定义学生
+typedef struct _Student
 {
-	int a=100;
-	printf(&quot;地址=%p\n&quot;,&amp;a);
-	printf(&quot;大小=%d\n&quot;,sizeof(a));
-	char b = 'A';
-	printf(&quot;b=%d,b=%p\n&quot;,b,&amp;b);
-	return 0;
+
+	char name[20];
+	int age;
+	char stuNum[20];//学号
+	float score;//成绩
+}Student;
+//定义链表的结点
+typedef struct _Node
+{
+	Student stu;//学生-数据域
+	struct _Node* pNext;//指向下一个结点的指针
+}Node;
+//定义头结点
+Node* g_pHead = NULL;
+ 
+
+//录入
+void Insert( char __name[],int __age,char __stuNum[],float  __score)
+{   
+
+	//创建一个结点-动态开辟
+	Node* pNewNode = (Node*)malloc(sizeof(Node));
+	pNewNode-&gt;pNext = NULL;
+	//头插法
+	if (g_pHead == NULL)//原来什么也没有
+	{
+		g_pHead = pNewNode;
+	}
+	else
+	{
+		pNewNode-&gt;pNext = g_pHead;
+		g_pHead = pNewNode;
+	}
+	
+    strcpy(pNewNode-&gt;stu.name,__name);
+    pNewNode-&gt;stu.age=__age;
+    strcpy(pNewNode-&gt;stu.stuNum,__stuNum);
+    pNewNode-&gt;stu.score=(float)__score;
+    printf(&quot;您录入的数据为：\n&quot;); 
+	printf(&quot;%s\n&quot;,pNewNode-&gt;stu.name); 
+	printf(&quot;%d\n&quot;,pNewNode-&gt;stu.age); 
+ 	printf(&quot;%s\n&quot;,pNewNode-&gt;stu.stuNum); 
+	printf(&quot;%f\n&quot;,pNewNode-&gt;stu.score); 
 }
-//for
-#include &lt;stdio.h&gt;
-int main()
+//录入学生信息
+void inputStudent()
+{   char flag;
+    char _name[20];int _age;char _stuNum[20];float _score;
+	printf(&quot;请输入学生姓名:\n&quot;);
+	scanf(&quot;%s&quot;,_name);//name是数组名，不用加&amp;
+	printf(&quot;请输入学生年龄:\n&quot;);
+	scanf(&quot;%d&quot;,&amp;_age);
+	printf(&quot;请输入学生的学号:\n&quot;);
+	scanf(&quot;%s&quot;,_stuNum);
+	printf(&quot;请输入学生的成绩:\n&quot;);
+	scanf(&quot;%f&quot;,&amp;_score);
+
+	printf(&quot;是否录入,请输入y/n确认？\n&quot;);
+	flag=getch();
+	switch(flag)
+	{
+	case 'y':Insert(_name,_age,_stuNum,_score);
+			 printf(&quot;录入完成！\n&quot;);
+			 break;
+	case 'n':printf(&quot;取消成功！\n&quot;);
+	         break;
+	default :printf(&quot;重新输入！\n&quot;);
+	         break; 
+	}
+
+	system(&quot;pause&quot;);
+	system(&quot;cls&quot;);//清屏
+}
+//打印学生信息
+void printStudent()
+{	
+	system(&quot;cls&quot;);
+	printf(&quot;——————————————------——————————————------\n&quot;);
+	printf(&quot;*\t————————欢迎使用高校学生管理系统——————----\t\n&quot;);
+	printf(&quot;——————————————------——————————————------\n&quot;);
+	printf(&quot;*\t学号\t\t*\t姓名\t\t*\t年龄\t\t*\t成绩*\t\t\n&quot;);
+	printf(&quot;——————————————------——————————————------\n&quot;);
+	//遍历链表
+	Node* p = g_pHead;
+	while (p != NULL)
+	{
+		printf(&quot;\t\t%s\t\t%s\t\t%d\t\t%.2f\t\t\n&quot;,p-&gt;stu.stuNum,p-&gt;stu.name,p-&gt;stu.age,p-&gt;stu.score);
+		p = p-&gt;pNext;
+	}
+	printf(&quot;——————————————------——————————————------\n&quot;);
+	system(&quot;pause&quot;);
+	system(&quot;cls&quot;);
+}
+//保存学生信息
+void saveStudent()
 {
+	system(&quot;cls&quot;);
+	//打开文件
+	FILE* fp = fopen(&quot;D:\\st.dat&quot;,&quot;w&quot;);
+	if (fp == NULL)
+	{
+		printf(&quot;打开文件失败。\n&quot;);
+		return;
+	}
+	//遍历链表
+	Node* p = g_pHead;
+	while (p != NULL)
+	{
+		fwrite(&amp;p-&gt;stu, 1,sizeof(Student),fp);
+		p = p-&gt;pNext;
+	}
+	//关闭文件
+	fclose(fp);
+	printf(&quot;保存数据成功。\n&quot;);
+	system(&quot;pause&quot;);
+	system(&quot;cls&quot;);
+}
+
+
+
+//读取学生信息
+
+void browerStudent()
+{  static int count=0;
+	//打开文件
+	if(count==1)
+	{
+	  printf(&quot;不能重复读取，请退出重试！！\n&quot;);
+	  system(&quot;pause&quot;);
+	}
+	else 
+	{
+	FILE* fp = fopen(&quot;D:\\st.dat&quot;, &quot;r&quot;);
+	if (fp == NULL)
+	{
+		printf(&quot;打开文件失败。\n&quot;);
+		system(&quot;pause&quot;);																																									;
+	}
+	else
+	{
+	//读文件
+	Student stu;
+	while (fread(&amp;stu, 1, sizeof(Student), fp))//只要不是文件末尾就继续读
+	{
+		//创建一个新结点
+		Node* pNewNode = (Node*)malloc(sizeof(Node));
+		pNewNode-&gt;pNext = NULL;
+		memcpy(pNewNode,&amp;stu,sizeof(Student));
+
+		//头插法
+		if (g_pHead == NULL)//原来什么也没有
+		{
+			g_pHead = pNewNode;
+		}
+		else
+		{
+			pNewNode-&gt;pNext = g_pHead;
+			g_pHead = pNewNode;
+		}
+	
+	}
+	if(feof!=0)
+	{
+	printf(&quot;加载数据成功。\n&quot;);	
+	system(&quot;pause&quot;);
+    }
+	}
+	//关闭文件
+	fclose(fp);
+	count=1;
+	
+	system(&quot;cls&quot;);
+	} 
+}
+//统计所有学生人数
+int countStudent()
+{
+	int nCount = 0;
+	//遍历链表
+	Node* p = g_pHead;
+	while (p != NULL)
+	{	
+		nCount++;
+		p = p-&gt;pNext;
+	}
+	return nCount;
+}
+//查找学生
+Node* findStudent()
+{
+	char nStudent[20];
+	char nName[20];
+	printf(&quot;请输入要查找的学生学号:\n&quot;);
+	scanf(&quot;%s&quot;, nStudent);
+
+	printf(&quot;请输入要查找的学生姓名:\n&quot;, nName);
+	scanf(&quot;%s&quot;,nName);
+	//遍历链表
+	Node* p = g_pHead;
+	while (p != NULL)
+	{
+		if (p-&gt;stu.stuNum == nStudent || 0 == strcmp(p-&gt;stu.name , nName))
+		{
+			return p;
+		}
+		p = p-&gt;pNext;
+	}
+	return NULL;
+}
+//修改学生信息
+void modifyStudent()
+{
+	char nStunum[20];
+	printf(&quot;请输入要修改学生的学号:\n&quot;);
+	scanf(&quot;%s&quot;, nStunum);
+	Node* p = g_pHead;
+	while (p != NULL)
+	{
+		if (strcmp(p-&gt;stu.stuNum,nStunum)==0)
+		{
+			printf(&quot;请输入修改学生的姓名 年龄 成绩：\n&quot;);
+			scanf(&quot;%s %d %f&quot;, p-&gt;stu.name, &amp;p-&gt;stu.age, &amp;p-&gt;stu.score);
+			printf(&quot;修改成功。\n&quot;);
+			break;
+		}
+		p = p-&gt;pNext;
+	}
+	if (p == NULL)
+	{
+		printf(&quot;没有找到该学生信息。\n&quot;);
+	}
+	system(&quot;pause&quot;);
+	system(&quot;cls&quot;);
+}
+//删除学生信息
+void deleteStudent()
+{
+	char nStunum[20];
+	
+	FILE* fp = fopen(&quot;D:\\st.dat&quot;, &quot;a&quot;);
+    if (fp == NULL)
+	{
+		printf(&quot;文件加载失败。\n&quot;);
+		system(&quot;pause&quot;);																																									;
+	}
+	else
+	{
+	fclose(fp); 
+	printf(&quot;请输入要删除的学生学号。\n&quot;);
+	scanf(&quot;%s&quot;,nStunum);
+	Node* p1,*p2;
+	//判断是不是头结点
+	if (strcmp(g_pHead-&gt;stu.stuNum,nStunum)== 0)
+	{
+		p1 = g_pHead;
+		g_pHead = g_pHead-&gt;pNext;
+		free(p1);
+		printf(&quot;删除成功。\n&quot;);
+		system(&quot;pause&quot;);
+		system(&quot;cls&quot;);
+		return;
+	}
+	//不是头结点
+	Node* p = g_pHead;
+	while (p-&gt;pNext != NULL)
+	{
+		if (strcmp(p-&gt;pNext-&gt;stu.stuNum,nStunum)==0)
+		{
+			p2 = p-&gt;pNext;
+			p-&gt;pNext = p-&gt;pNext-&gt;pNext;
+			free(p2);
+			printf(&quot;删除成功。\n&quot;);
+			system(&quot;pause&quot;);
+			system(&quot;cls&quot;);
+			return;
+		}
+		p = p-&gt;pNext;
+		if (p-&gt;pNext == NULL)
+		{
+			break;
+		}
+		
+	}
+	if (p-&gt;pNext ==NULL)
+	{
+		printf(&quot;查无此人。\n&quot;);
+	}
+	system(&quot;pause&quot;);
+	system(&quot;cls&quot;);
+}
+	system(&quot;cls&quot;);
+}
+//格式化
+void delete()
+{  
+   int ret;
+   if(login()==1)
+   {
+   
+   FILE *fp;
+   char filename[] = &quot;D:\\st.dat&quot;;
+
+   fp = fopen(filename, &quot;w&quot;);
+   if (fp == NULL)
+	{
+		printf(&quot;该文件不存在！！\n&quot;);
+		system(&quot;pause&quot;);
+		system(&quot;cls&quot;);																																									;
+	}
+
+   fclose(fp);
+   
+   ret = remove(filename);
+
+   if(ret == 0) 
+   {
+   	  system(&quot;cls&quot;);
+      printf(&quot;文件删除成功\n&quot;);
+   }
+   else 
+   {
+   	  system(&quot;cls&quot;);
+      printf(&quot;错误：不能删除该文件！\n&quot;);
+   	  system(&quot;pause&quot;);
+   }
+   }
+} 
+
+//主菜单
+void mainMenu()
+{
+	printf(&quot;——————————————------\n&quot;);
+	printf(&quot;*\t欢迎使用高校学生管理系统*\n&quot;);
+	printf(&quot;——————————————------\n&quot;);
+	printf(&quot;*\t1.录入学生信息\t\t*\n&quot;);
+	printf(&quot;*\t2.打印学生信息\t\t*\n&quot;);
+	printf(&quot;*\t3.保存学生信息\t\t*\n&quot;);
+	printf(&quot;*\t4.读取学生信息\t\t*\n&quot;);
+	printf(&quot;*\t5.统计所有学生人数\t*\n&quot;);
+	printf(&quot;*\t6.查找学生信息\t\t*\n&quot;);
+	printf(&quot;*\t7.修改学生信息\t\t*\n&quot;);
+	printf(&quot;*\t8.删除学生信息\t\t*\n&quot;);
+	printf(&quot;*\t9.格式化数据文件\t*\n&quot;); 
+	printf(&quot;*\t0.退出系统\t\t*\n&quot;);
+	printf(&quot;——————————————------\n&quot;);
+
+
+}
+//键盘输入
+void keyDown()
+{ 
+	char ch = _getch();
+	switch (ch)
+	{
+	case '1'://录入
+		inputStudent();
+		break;
+	case '2'://打印
+		printStudent();
+		break;
+	case '3'://保存
+		saveStudent();
+		break;
+	case '4'://读取
+		browerStudent();
+		break;
+	case '5'://统计
+		printf(&quot;学生总人数为:%d\n&quot;, countStudent());
+		system(&quot;pause&quot;);
+		system(&quot;cls&quot;);
+		break;
+	case '6'://查找
+	{
+		Node* p = findStudent();
+		if (p != NULL)
+		{
+			printf(&quot;学号:%s\t姓名:%s\t年龄:%d\t成绩:%f\n&quot;, p-&gt;stu.stuNum, p-&gt;stu.name, p-&gt;stu.age, p-&gt;stu.score);
+		}
+		else
+		{
+			printf(&quot;没有找到该学生。\n&quot;);
+		}
+		system(&quot;pause&quot;);
+		system(&quot;cls&quot;);
+		break;
+	}	
+	case '7'://修改
+		modifyStudent();
+		break;
+	case '8'://删除
+		deleteStudent();
+		break;
+	case '9'://格式化 
+		delete();
+		break;
+	case '0'://退出
+		exit(0);
+		break;
+	default:
+		system(&quot;cls&quot;);
+		system(&quot;pause&quot;);
+		printf(&quot;输入错误，请重新输入。\n&quot;);
+		break;
+	}
+}
+int login()
+{
+char password[]=&quot;990820&quot;;
 	int i;
-	//变量i从数值0开始，如果它的数值小于5，那么就执行{}里面的内容
-	//并且每次执行完毕以后，进行 i++ ,也就是自己加1
-	//直到i的数值大于等于5的时候，就不再执行{}里面的内容。
-	for(i=0;i&lt;5;i++)
-	{
-		printf(&quot;i=%d\n&quot;,i);
-	}	
-	return 0;
+    char input[10];
+	for(i=0;i&lt;3;i++) {
+	 printf(&quot;请输入密码:\n&quot;);
+	  scanf(&quot;%s&quot;,input);
+	   if(strcmp(input,password) == 0)
+		  break;
+	   else if (i&lt;3) printf(&quot;密码错误,重新输入!\n&quot;);
+	   system(&quot;cls&quot;);
+	} 
+	if(i&lt;3) {
+	 printf(&quot;登陆成功!\n&quot;);
+	 return 1;
+	} 
+	else printf(&quot;密码错误!\n&quot;);
+	return -1;
+ system(&quot;cls&quot;);
 }
-//hello
-#include &lt;stdio.h&gt;
-int main()
-{
-	int a=100;
-	printf(&quot;地址=%p\n&quot;,&amp;a);
-	printf(&quot;大小=%d\n&quot;,sizeof(a));
-	char b = 'A';
-	printf(&quot;b=%d,b=%p\n&quot;,b,&amp;b);
-	return 0;
-}
-//test1
-#include &lt;stdio.h&gt;
 
-int main()
-{
-	int i,j;
-	for(i=0;i&lt;3;i++)
-	{
-		for(j=0;j&lt;i;j++)
-			printf(&quot; &quot;);
-		for(j=0;j&lt;2*(2-i)+1;j++)
-			printf(&quot;*&quot;);
-		printf(&quot;\n&quot;);
-	}	
-	/*******
-	第一次输出： i=0的时候
-		j也是从0开始，j&lt;i 不成立，不会打印&quot; &quot;
-		j&lt;2*(2-0)+1 一共会执行5次
-	第二次输出： i=1的时候
-		j&lt;i成立，打印一次&quot; &quot;
-		j&lt;2*(2-1)+1 一共会执行3次
-	第三次输出： i=2的时候
-		j&lt;i成立，打印两次&quot; &quot;
-		j&lt;2*(2-2)+1 一共会执行1次
-	*******/
-	return 0;
-}
-//test2
-#include &lt;stdio.h&gt;
-int main()
-{
-	int ceng = 7;
-	int i,j;
-	for(i=0;i&lt;ceng;i++)
-	{
-		for(j=0;j&lt;ceng-1-i;j++)
-			printf(&quot; &quot;);
-		for(j=0;j&lt;2*i+1;j++)
-			printf(&quot;*&quot;);
-		printf(&quot;\n&quot;);
-	}
-	return 0;
-}
-//while
-#include &lt;stdio.h&gt;
 
-int main()
-{
-	int i=0;
-	//只要i小于5，就执行{}里面的内容
-	while(i&lt;5)
-	{
-		printf(&quot;i=%d\n&quot;,i);
-		i++;
+int main(void)
+{	
+   if(login()==-1)
+   exit(0); 
+   else
+	while (1)
+	{   
+		mainMenu();
+		keyDown();
 	}
 	return 0;
 }
@@ -491,7 +710,7 @@ int main()
 
                                                 <p class="copyright-item">
                                                     <span>&#x6C38;&#x4E45;&#x94FE;&#x63A5;:</span>
-                                                    <span><a href="https://tong125847.github.io/post/ubuntu-xue-xi-2020-11-02di-yi-tian/">https://tong125847.github.io/post/ubuntu-xue-xi-2020-11-02di-yi-tian/</a></span>
+                                                    <span><a href="https://tong125847.github.io/post/yi-ge-c-yu-yan-gao-xiao-xue-sheng-guan-li-xi-tong/">https://tong125847.github.io/post/yi-ge-c-yu-yan-gao-xiao-xue-sheng-guan-li-xi-tong/</a></span>
                                                 </p>
 
                                                 <p class="copyright-item">
@@ -506,9 +725,9 @@ int main()
                                                                     <span style="margin-right:15px">
                         <i class="post-share"></i>
                         <span>&#x5206;&#x4EAB;:</span>
-                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://tong125847.github.io/post/ubuntu-xue-xi-2020-11-02di-yi-tian/"><i class="fa fa-qrcode"></i></a>
-                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://tong125847.github.io/post/ubuntu-xue-xi-2020-11-02di-yi-tian/&sharesource=qzone&title=Ubuntu学习（第一天）&pics=https://tong125847.github.io/images/avatar.png?v=1622386872968&summary="><i class="fa fa-qq"></i></a>
-                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://tong125847.github.io/post/ubuntu-xue-xi-2020-11-02di-yi-tian/&sharesource=weibo&title=Ubuntu学习（第一天） + " - " + &pic="https://tong125847.github.io/images/avatar.png?v=1622386872968 "><i class="fa fa-weibo "></i></a>
+                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://tong125847.github.io/post/yi-ge-c-yu-yan-gao-xiao-xue-sheng-guan-li-xi-tong/"><i class="fa fa-qrcode"></i></a>
+                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://tong125847.github.io/post/yi-ge-c-yu-yan-gao-xiao-xue-sheng-guan-li-xi-tong/&sharesource=qzone&title=一个C语言高校学生管理系统&pics=https://tong125847.github.io/images/avatar.png?v=1622386872968&summary="><i class="fa fa-qq"></i></a>
+                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://tong125847.github.io/post/yi-ge-c-yu-yan-gao-xiao-xue-sheng-guan-li-xi-tong/&sharesource=weibo&title=一个C语言高校学生管理系统 + " - " + &pic="https://tong125847.github.io/images/avatar.png?v=1622386872968 "><i class="fa fa-weibo "></i></a>
 
                                                                     </span>
                                                                     
@@ -532,13 +751,9 @@ int main()
                                                                                 <!---->
                                                                                 <section class="post-nav">
                                                                                     
-                                                                                        <a class="prev" rel="prev" href="https://tong125847.github.io/post/qt-creator-xue-xi/">
-                                                                                            Qt Creator学习
-                                                                                        </a>
-                                                                                        
                                                                                             
-                                                                                                <a class="next" rel="next" href="https://tong125847.github.io/post/cha-ru-tu-pian-markdown/">
-                                                                                                    插入图片Markdown
+                                                                                                <a class="next" rel="next" href="https://tong125847.github.io/post/linux-ji-chu-ming-ling-tune2fs/">
+                                                                                                    Linux基础命令---tune2fs
                                                                                                 </a>
                                                                                                 
                                                                                 </section>
